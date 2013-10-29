@@ -1,7 +1,7 @@
 Instalação do PostgreSQL via código fonte
 =========================================
 
-Este é um passo a passo para instalação do PostgreSQL (versão 9.3.0) via código-fonte utilizando as máquinas virtuais disponibilizadas no treinamento. No caso, a VM está utilizando Debian 6, mas há poucas diferenças para outras distribuições (no passo a passo comentamos ao menos para Ubuntu e CentOS/RHEL).
+Este é um passo a passo para instalação do PostgreSQL (versão 9.3.1) via código-fonte utilizando as máquinas virtuais disponibilizadas no treinamento. No caso, a VM está utilizando Debian 6, mas há poucas diferenças para outras distribuições (no passo a passo comentamos ao menos para Ubuntu e CentOS/RHEL).
 
 OBS: Linhas iniciadas com >>> são comentários ou saída de comandos. Linhas iniciadas com $ são usuários não privilegiados e começados com # são de root.
 
@@ -23,17 +23,17 @@ Para CentOS/RHEL: `yum install readline-devel zlib-devel gcc make`.
 Baixando, extraindo e compilando o PostgreSQL:
 
 	# cd /usr/local/src/
-	# wget http://ftp.postgresql.org/pub/source/v9.3.0/postgresql-9.3.0.tar.bz2
-	# tar xvf postgresql-9.3.0.tar.bz2
-	# cd postgresql-9.3.0/
-	# ./configure --prefix=/usr/local/pgsql-9.3.0
+	# wget http://ftp.postgresql.org/pub/source/v9.3.1/postgresql-9.3.1.tar.bz2
+	# tar xvf postgresql-9.3.1.tar.bz2
+	# cd postgresql-9.3.1/
+	# ./configure --prefix=/usr/local/pgsql-9.3.1
 	# make -j 2  # trocar 2 pelo número de cores
 	# make install
 
 Link simbólico (facilita administração e atualizações):
 
 	# cd /usr/local/
-	# ln -s pgsql-9.3.0/ pgsql
+	# ln -s pgsql-9.3.1/ pgsql
 
 Variáveis de ambiente:
 
@@ -63,7 +63,7 @@ Criação do cluster:
 
 Script de inicialização:
 
-	# cp /usr/local/src/postgresql-9.3.0/contrib/start-scripts/linux /etc/init.d/postgresql
+	# cp /usr/local/src/postgresql-9.3.1/contrib/start-scripts/linux /etc/init.d/postgresql
 	# chmod a+x /etc/init.d/postgresql
 	# update-rc.d postgresql defaults
 
