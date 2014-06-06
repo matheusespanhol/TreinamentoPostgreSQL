@@ -73,11 +73,11 @@ Configurar também o corosync para inciar, alterando a variável START para yes 
 Agora, deve-se copiar os arquivos de configuração para os demais nós:
 
 	scp /etc/corosync/* root@postgresql02:/etc/corosync/
-	scp /etc/default/corosync/ root@postgresql02:/etc/default/
+	scp -r /etc/default/corosync/ root@postgresql02:/etc/default/
 
 Em seguida, basta iniciar o Corosync em todos nós:
 
-	/etc/initi.d/corosync start
+	/etc/init.d/corosync start
 
 Para verificar se foi iniciado:
 
