@@ -1,0 +1,10 @@
+deb http://archive.debian.org/debian/ lenny main non-free contrib
+deb-src http://archive.debian.org/debian/ lenny main non-free contrib
+# Volatile:
+deb http://archive.debian.org/debian-volatile lenny/volatile main contrib non-free
+deb-src http://archive.debian.org/debian-volatile lenny/volatile main contrib non-free
+# Backports:
+deb http://archive.debian.org/debian-backports lenny-backports main contrib non-free
+# Previously announced security updates:
+deb http://archive.debian.org/debian-security lenny/updates main
+
