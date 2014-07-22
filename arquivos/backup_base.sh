@@ -16,24 +16,13 @@ fi
 
 # Backup
 
-$BINDIR/psql -h $MASTER -U $USER -p $PORT $DBNAME -c "SELECT pg_start_backup('foo')"
+rm -rf $PGDATA
 
-rsync -avz --progress --exclude=pg_xlog/* --exclude=pg_xlog/archive_status/* $MASTER:$PGDATA/ $PGDATA/
-
-$BINDIR/psql -h $MASTER -U $USER -p $PORT $DBNAME -c "SELECT pg_stop_backup()"
+$BINDIR/pg_basebackup -D $PGDATA -R -P -h $MASTER
 
 # Restauracao
 
-rm $PGDATA/*.pid
-
-echo "Criando arquivo recovery.conf..."
-echo "
-standby_mode = 'true'
-primary_conninfo = 'host=postgresql01'
-trigger_file = '/tmp/arquivo_gatilho.pgsql'
-" > $PGDATA/recovery.conf
-
-sed -i 's/#hot_standby = off/hot_standby = on/g' $PGDATA/postgresql.conf
+sed -i 's/#hot_standby = off/hot_standby = on/g' $PGDATA/../config/replicacao.conf
 
 $BINDIR/pg_ctl -D $PGDATA start
 

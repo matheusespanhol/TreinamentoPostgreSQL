@@ -70,11 +70,6 @@ cd pgpool-II-3.3.3
 ./configure
 make
 make install
-cd sql/pgpool-regclass
-make
-make install
-psql -U postgres template1 -c "CREATE EXTENSION pgpool_regclass"
-echo "pgpool.pg_ctl = '/usr/local/pgsql/bin/pg_ctl'" >> /dados/postgresql/postgresql.conf
 /etc/init.d/postgresql-9.3 reload
 cp $BASEDIR/pgpool.conf /usr/local/etc/
 cp $BASEDIR/pcp.conf /usr/local/etc/

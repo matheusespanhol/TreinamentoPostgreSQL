@@ -20,6 +20,10 @@ bind_addr=$(echo ${ip} | awk -F '.' '{printf("%d.%d.%d.0", $1, $2, $3)}')
 
 set -x
 
+apt-get update
+
+rm -rf /var/lib/dpkg/lock
+
 apt-get install -y pacemaker corosync
 
 cp "${basedir}/corosync.conf" /etc/corosync/corosync.conf

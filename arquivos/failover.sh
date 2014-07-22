@@ -20,5 +20,5 @@ old_primary_node_id=$8
 trigger=/var/log/pgpool/trigger/trigger_file1
 
 if [ $failed_node_id = $old_primary_node_id ];then	# master failed
-    ssh postgres@postgresql02 "pg_ctl -D /dados/postgresql promote"
+    ssh postgres@postgresql02 "/usr/local/pgsql/bin/pg_ctl -D /dados/postgresql promote"
 fi
