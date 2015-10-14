@@ -5,7 +5,7 @@ export PATH
 
 case "$1" in
 	start)
-		/usr/local/bin/pgpool -d -n > /var/log/pgpool.log 2>&1 &
+		/usr/local/bin/pgpool -n > /var/log/pgpool.log 2>&1 &
 		exit $?
 	;;
 	stop)
