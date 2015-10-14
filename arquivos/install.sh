@@ -64,19 +64,18 @@ chown postgres:postgres /dados/postgresql/*.conf
 pgpool() {
 source /etc/profile
 cd /usr/local/src
-wget http://www.pgpool.net/mediawiki/images/pgpool-II-3.3.3.tar.gz
-tar zxvf pgpool-II-3.3.3.tar.gz
-cd pgpool-II-3.3.3
+wget http://www.pgpool.net/mediawiki/images/pgpool-II-3.4.3.tar.gz
+tar zxvf pgpool-II-3.4.3.tar.gz
+cd pgpool-II-3.4.3
 ./configure
 make
 make install
-/etc/init.d/postgresql-9.3 reload
 cp $BASEDIR/pgpool.conf /usr/local/etc/
 cp $BASEDIR/pcp.conf /usr/local/etc/
 cp $BASEDIR/failover.sh /usr/local/etc/
 cp $BASEDIR/pgpool /etc/init.d/
-mkdir /var/run/pgpool
-mkdir /var/log/pgpool
+mkdir -p /var/run/pgpool
+mkdir -p /var/log/pgpool
 chown postgres:postgres -R /var/run/pgpool
 chown postgres:postgres -R /var/log/pgpool
 update-rc.d pgpool defaults

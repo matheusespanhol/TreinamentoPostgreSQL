@@ -2,8 +2,8 @@
 
 # Variaveis de ambiente
 
-MASTER=postgresql01
-USER=postgres
+MASTER=postgresql02
+PGUSER=repl
 PORT=5432
 DBNAME=postgres
 BINDIR=/usr/local/pgsql/bin
@@ -18,7 +18,7 @@ fi
 
 rm -rf $PGDATA
 
-$BINDIR/pg_basebackup -D $PGDATA -R -P -h $MASTER
+$BINDIR/pg_basebackup -D $PGDATA -R -P -h $MASTER -U $PGUSER
 
 # Restauracao
 
