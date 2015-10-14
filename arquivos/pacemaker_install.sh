@@ -3,7 +3,7 @@
 # INICIO EDIÇÃO:
 
 # Interface de rede a associar ao VIP
-iface=eth0
+iface=eth4
 # Último octeto do VIP (p.e. se IP da máquina for 192.168.1.X e master_sub_ip=200 então master_vip=192.168.1.200)
 master_sub_ip=200
 
